@@ -1,3 +1,12 @@
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 @import '_layout';
+
+// @import '../components/file-list/file-list'; 
+
+// file-list styles. Should go in the appropriate component instead.
+// keeping all styles in the main sheet for now b/c the build is not picking them up correctly for some reason
+
+.file-list {
+  padding-top: 50px;
+}

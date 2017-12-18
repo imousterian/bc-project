@@ -5,7 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
 import { AppComponent } from './app';
-
+import { HomeModule } from './components/home.module';
+import { FileService } from './services/file.svc';
+import { FolderService } from './services/folder.svc';
 import { routing } from './app.routing';
 
 @NgModule({
@@ -14,13 +16,15 @@ import { routing } from './app.routing';
     HttpModule,
     FormsModule,
     routing,
+    HomeModule,
     // modules go here
   ],
   declarations: [
     AppComponent,
   ],
   providers: [
-    // services go here
+    FileService,
+    FolderService,
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent],
