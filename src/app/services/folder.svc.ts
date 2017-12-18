@@ -9,7 +9,7 @@ export class FolderService {
   }
 
   public create(payload: any): Promise<any[]> {
-    if (!payload.name) {
+    if (!payload.name || payload.name.length === 0) {
       return this.handleError('Name is required');
     }
     let resourceUrl: string = 'http://localhost:8080/api/folders';
