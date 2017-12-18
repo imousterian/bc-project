@@ -1,6 +1,14 @@
 <div class="file-list container">
-  <button class="btn btn-default pull-right" (click)="createNewFolder()">New Folder</button>
-
+  <div class="row">
+    <div class="col-sm-6 pull-right">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Folder name" [(ngModel)]="folderName"/> 
+        <span class="input-group-btn">
+          <button class="btn btn-default" (click)="createNewFolder()" type="button">New Folder!</button>
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
 
 

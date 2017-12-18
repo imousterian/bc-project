@@ -9,6 +9,8 @@ import { FolderService } from '../../services/folder.svc';
 
 export class FileListComponent { 
 	
+	folderName: string = '';
+
 	constructor(
 		private fileSvc: FileService,
 		private folderSvc: FolderService) {
@@ -16,8 +18,11 @@ export class FileListComponent {
 	}
 
 	createNewFolder() {
-		this.folderSvc.create((response) => {
-			console.log(response);
+		let payload = {
+			name: this.folderName
+		}
+		this.folderSvc.create(payload).then((response) => {
+			console.log(response)
 		})
 		.catch(err => {
 			console.log(err)
