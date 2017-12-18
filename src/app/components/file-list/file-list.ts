@@ -8,8 +8,7 @@ import { FolderService } from '../../services/folder.svc';
 })
 
 export class FileListComponent implements OnInit{ 
-	
-	folderName: string = '';
+
 	foldersAtRootArray: any[] = [];
 
 	constructor(
@@ -26,14 +25,9 @@ export class FileListComponent implements OnInit{
 	// for now, triggers getRootData() method and refetches all data
 	// TODO: update data in local cache?
 
-	createNewFolder() {
-		let payload = {
-			name: this.folderName
-		}
-		this.folderSvc.create(payload)
+	createNewFolder($event) {
+		this.folderSvc.create($event)
 		.then((response) => {
-			// clear the folder name
-			this.folderName = null;
 			return new Promise((resolve, reject) => {
 				resolve(response);
 			})

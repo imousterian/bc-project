@@ -2,10 +2,7 @@
   <div class="row">
     <div class="col-sm-6 pull-right">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Folder name" [(ngModel)]="folderName"/> 
-        <span class="input-group-btn">
-          <button class="btn btn-default" (click)="createNewFolder()" type="button">New Folder!</button>
-        </span>
+        <new-folder [parentID]="null" (onSubmit)="createNewFolder($event)" ></new-folder>
       </div>
     </div>
   </div>
@@ -23,6 +20,9 @@
           <td>{{item.name}}</td>
           <td>{{item.size}}</td>
           <td>{{item.dateModified}}</td>
+          <td>
+            <new-folder [parentID]="item._id" (onSubmit)="createNewFolder($event)"></new-folder>
+          </td>
         </tr>
       </tbody>
     </table>

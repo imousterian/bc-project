@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HOMEROUTING } from './home.routing';
 import { HomeComponent } from './home';
 import { FileListComponent } from './file-list/file-list';
+import { NewFolderComponent } from './new-folder/new-folder';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { FileListComponent } from './file-list/file-list';
   declarations: [
     HomeComponent,
     FileListComponent,
+    NewFolderComponent,
   ],
   exports: [
     HomeComponent
