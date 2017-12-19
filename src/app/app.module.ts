@@ -8,6 +8,7 @@ import { AppComponent } from './app';
 import { HomeModule } from './components/home.module';
 import { FileService } from './services/file.svc';
 import { FolderService } from './services/folder.svc';
+import { CacheService } from './services/cache.svc';
 import { routing } from './app.routing';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { routing } from './app.routing';
   providers: [
     FileService,
     FolderService,
+    CacheService,
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent],

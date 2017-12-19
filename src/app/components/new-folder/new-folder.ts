@@ -21,10 +21,8 @@ export class NewFolderComponent {
 			parentId: this.parentID,
     }
     this.onSubmit.emit(payload);
-    // clear the name from the input
-    setTimeout(function() {
-      this.folderName = null;
-    }, 100);
+    //  clear the name from the input
+    this.folderName = null;
   }
 }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FileService } from '../../services/file.svc';
 import { FolderService } from '../../services/folder.svc';
+import { CacheService } from '../../services/cache.svc';
 
 @Component({
 	selector: 'file-list',
@@ -12,6 +13,7 @@ export class FileListComponent implements OnInit{
 	foldersAtRootArray: any[] = [];
 
 	constructor(
+		private cacheSvc: CacheService,
 		private fileSvc: FileService,
 		private folderSvc: FolderService) {
 	}
@@ -32,7 +34,10 @@ export class FileListComponent implements OnInit{
 				resolve(response);
 			})
 		})
-		.then((response) => {
+		.then((response: any) => {
+			// update cache with initial root data.
+			// parameters:  id is the folder/file id; array is a holder for folder children
+			this.cacheSvc.updateCache(response._id, []);
 			this.getRootData();
 		})
 		.catch(err => {
@@ -43,6 +48,11 @@ export class FileListComponent implements OnInit{
 	getRootData() {
 		this.fileSvc.getAllFiles().then((response) => {
 			this.foldersAtRootArray = response;
+			response.forEach((r) => {
+				// update cache with initial root data.
+				// parameters: id is the folder/file id; array is a holder for folder children
+				this.cacheSvc.updateCache(r._id, []);
+			})
 		})
 		.catch(err => {
 			// console.log(err);

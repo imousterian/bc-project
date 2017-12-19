@@ -3,8 +3,9 @@
     <div class="row">
       <div class="col-sm-4">
         <span *ngIf="isFolder" class="glyphicon glyphicon-folder-open"> {{item.name}}</span>
+        <span *ngIf="!isFolder" class="glyphicon glyphicon-book"> {{item.name}} </span>
       </div>
-      <div class="col-sm-3"><span class="pull-left">{{item.size}}</span></div>
+      <div class="col-sm-3"><span class="pull-left">{{byteCount/1024/1024 | number : '1.2'}} MB</span></div>
       <div class="col-sm-3"><span class="pull-left">{{item.dateModified}}</span></div>
       <div class="col-sm-2">
         <div class="pull-right" *ngIf="isFolder">
@@ -15,7 +16,7 @@
     </div>
     <new-folder *ngIf="isNewFolderOpen" [parentID]="item._id" (onSubmit)="createNewFolder($event)"></new-folder>  
   </div>
-  <ul *ngIf="isFolder && isToggled">
+  <ul [hidden]="!(isFolder && isToggled)">
     <folder-item *ngFor="let _item of item.folders" [item]="_item"></folder-item>
   </ul>
 </li>
