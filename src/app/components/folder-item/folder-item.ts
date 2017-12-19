@@ -16,10 +16,11 @@ export class FolderItemComponent {
 	constructor(private folderSvc: FolderService) {
   }
   
+  // currently just fetches the data on each toggle event
+  // though it shouldn't be; should be gettign data from a cache if it's already been fetched
   toggle() {
     this.toggled = !this.toggled;
     this.getFolderItems();
-    
   }
 
   getFolderItems() {
