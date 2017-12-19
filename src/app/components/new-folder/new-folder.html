@@ -1,2 +1,10 @@
-<input type="text" class="form-control" placeholder="Folder name" [(ngModel)]="folderName"/> 
-<button class="btn btn-default" (click)="constructNewFolderPayload()" type="button">New Folder!</button>
+<div class="row">
+  <div class="col-sm-3 pull-right">
+    <div class="input-group">
+      <div class="input-group input-group-sm"> 
+        <input type="text" class="form-control" placeholder="Folder name" [(ngModel)]="folderName"/>
+        <span class="input-group-addon" (click)="constructNewFolderPayload()">+</span>   
+      </div>
+    </div>
+  </div>
+</div>

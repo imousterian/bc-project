@@ -11,8 +11,7 @@ export class NewFolderComponent {
 
 	folderName: string = '';
 
-	constructor() {
-	}
+  constructor() {}
 
   // constructs a payload to be sent back to the parent component
   // parent component is responsible for handing API requests
@@ -26,7 +25,7 @@ export class NewFolderComponent {
     setTimeout(function() {
       this.folderName = null;
     }, 100);
-	}
+  }
 }
 
 
