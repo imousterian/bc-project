@@ -19,7 +19,7 @@ export class NewFolderComponent {
 	constructNewFolderPayload() {
 		let payload = {
 			name: this.folderName,
-			parentID: this.parentID,
+			parentId: this.parentID,
     }
     this.onSubmit.emit(payload);
     // clear the name from the input

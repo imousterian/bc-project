@@ -1,0 +1,8 @@
+<td (click)="toggle()">{{item.name}}</td>
+<td>{{item.size}}</td>
+<td>{{item.dateModified}}</td>
+<div *ngIf="toggled">
+  <tr *ngFor="let _item of foldersArray">
+    <folder-item [item]="_item"></folder-item>
+  </tr>
+</div>

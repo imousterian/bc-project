@@ -24,6 +24,19 @@ export class FolderService {
       })
   }
 
+  public getAllItemsByFolder(folderID: number): Promise<any[]> {
+    let resourceUrl: string = `http://localhost:8080/api/folders/${folderID}/items`;
+    return this.http
+      .get(resourceUrl)
+      .toPromise()
+      .then(response => {
+        return response.json() as any[];
+      })
+      .catch(err => {
+        return this.handleError(err);
+      })
+  }
+
   private handleError(error: any): Promise<any> {
     return Promise.reject(error.message || error);
   }

@@ -17,9 +17,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of foldersAtRootArray">
-          <td>{{item.name}}</td>
-          <td>{{item.size}}</td>
-          <td>{{item.dateModified}}</td>
+          <folder-item [item]="item"></folder-item>
           <td>
             <new-folder [parentID]="item._id" (onSubmit)="createNewFolder($event)"></new-folder>
           </td>

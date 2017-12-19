@@ -8,6 +8,8 @@ import { HomeComponent } from './home';
 import { FileListComponent } from './file-list/file-list';
 import { NewFolderComponent } from './new-folder/new-folder';
 
+import { FolderItemComponent } from './folder-item/folder-item';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -19,6 +21,7 @@ import { NewFolderComponent } from './new-folder/new-folder';
     HomeComponent,
     FileListComponent,
     NewFolderComponent,
+    FolderItemComponent,
   ],
   exports: [
     HomeComponent
