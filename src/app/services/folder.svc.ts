@@ -9,10 +9,16 @@ export class FolderService {
   }
 
   public create(payload: any): Promise<any[]> {
+    let resourceUrl: string = '';
     if (!payload.name || payload.name.length === 0) {
       return this.handleError('Name is required');
     }
-    let resourceUrl: string = 'http://localhost:8080/api/folders';
+    if (!payload.parentId) {
+      resourceUrl = 'http://localhost:8080/api/folders';
+    } else {
+      resourceUrl = `http://localhost:8080/api/folders?parentId=${payload.parentId}`;
+    }
+    
     return this.http
       .post(resourceUrl, payload)
       .toPromise()
