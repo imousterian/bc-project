@@ -9,4 +9,13 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 
 .file-list {
   padding-top: 50px;
+  .top-header {
+    border-bottom: 1px solid black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+.folder {
+  font-weight: bold;
 }
