@@ -1,8 +1,21 @@
-<td (click)="toggle()">{{item.name}}</td>
-<td>{{item.size}}</td>
-<td>{{item.dateModified}}</td>
-<div *ngIf="toggled">
-  <tr *ngFor="let _item of foldersArray">
-    <folder-item [item]="_item"></folder-item>
-  </tr>
-</div>
+<li>
+  <div [ngClass]="{'folder': isFolder === true}">
+    <div class="row">
+      <div class="col-sm-4">
+        <span *ngIf="isFolder" class="glyphicon glyphicon-folder-open"> {{item.name}}</span>
+      </div>
+      <div class="col-sm-3"><span class="pull-left">{{item.size}}</span></div>
+      <div class="col-sm-3"><span class="pull-left">{{item.dateModified}}</span></div>
+      <div class="col-sm-2">
+        <div class="pull-right" *ngIf="isFolder">
+        <span class="glyphicon glyphicon-plus-sign" (click)="openNewFolderForm()"></span>
+        <span class="glyphicon" [ngClass]="{'glyphicon-triangle-bottom': isToggled, 'glyphicon-triangle-right': !isToggled}" (click)="toggle()" ></span>
+        </div>
+      </div>
+    </div>
+    <new-folder *ngIf="isNewFolderOpen" [parentID]="item._id" (onSubmit)="createNewFolder($event)"></new-folder>  
+  </div>
+  <ul *ngIf="isFolder && isToggled">
+    <folder-item *ngFor="let _item of item.folders" [item]="_item"></folder-item>
+  </ul>
+</li>
